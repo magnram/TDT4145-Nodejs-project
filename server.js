@@ -17,7 +17,7 @@ app.use('/', appRoutes);
 
 hbs.registerHelper("formatDatetime", (datetime) => {
   var day = datetime.getDate();
-  var month = datetime.getMonth();
+  var month = datetime.getMonth()+1;
   var year = datetime.getFullYear();
   var hour = datetime.getHours();
   var minute = datetime.getMinutes();

@@ -76,6 +76,7 @@ exports.update_a_workout = (req, res) => {
   var updated_workout = new Workout(req.body)
   var id = req.body.id;
   updated_workout.datotid = dbDatetimeFormat(updated_workout.datotid);
+  console.log(updated_workout)
   if(validWorkout(updated_workout).error) {
     res.status(400).send(validWorkout(updated_workout));
   } else {
@@ -92,6 +93,7 @@ var dbDatetimeFormat = (datetime) => {
   var dato = temp[0].split("/");
   var tid = temp[1].split(":");
   var tid2 = tid[2] ? tid[2] : "00";
+
   return (`${dato[2]}-${dato[1]}-${dato[0]} ${tid[0]}:${tid[1]}:${tid2}`);
 }
 // exports.delete_a_workout = (req, res) => {
